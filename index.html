@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EchoMancer – Autonomous Development. Intelligent Resource Management.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-text">
+      <span class="echo">Echo</span><span class="mancer">mancer</span>
+    </div>
+    <nav>
+      <a href="https://github.com/secsovereign/echomancer/releases" class="nav-link" target="_blank"><i class="fa-solid fa-download"></i> Download</a>
+      <a href="https://github.com/secsovereign/echomancer" class="nav-link" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h1 class="project-title">
+        <span class="echo">Echo</span><span class="mancer">mancer</span>
+      </h1>
+      <p class="tagline">Autonomous Development. Intelligent Resource Management.<br><span style="font-size:1rem;color:#A0A0A0;">Powered by <strong>Cursor</strong></span></p>
+      <div class="cta-buttons">
+        <a href="#cli" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Get Started</a>
+        <a href="https://github.com/secsovereign/echomancer/releases" class="btn btn-secondary" target="_blank"><i class="fa-solid fa-download"></i> Download</a>
+        <a href="https://github.com/secsovereign/echomancer" class="btn btn-tertiary" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </section>
+    <section class="info-section" id="what">
+      <h2>What is EchoMancer?</h2>
+      <p><strong>EchoMancer</strong> is a resource-aware, autonomous CLI automation tool for developers, tightly integrated with <strong>Cursor</strong>. It implements the Groundhog methodology to automate complete development cycles—scanning, coding, testing, and committing—using intelligent hardware detection and adaptive scaling. <strong>Note:</strong> You must have a functioning <strong>Cursor</strong> installation for EchoMancer to operate.</p>
+    </section>
+    <section class="info-section" id="why">
+      <h2>Why Use EchoMancer?</h2>
+      <ul>
+        <li><strong>Save time</strong> by automating repetitive development tasks.</li>
+        <li><strong>Consistent quality</strong> with AI-driven code generation and review.</li>
+        <li><strong>Resource efficiency</strong>—auto-detects your hardware and scales accordingly.</li>
+        <li><strong>Cross-platform</strong>—works on Linux, macOS, and Windows.</li>
+        <li><strong>Open source</strong> and extensible for your own workflows.</li>
+        <li><strong>Cursor-powered</strong>—Leverages the power of Cursor for code generation and learning.</li>
+      </ul>
+    </section>
+    <section class="info-section" id="how">
+      <h2>How it Works</h2>
+      <ol>
+        <li><strong>Install Cursor:</strong> Ensure you have a working <a href="https://www.cursor.so/" target="_blank">Cursor</a> installation.</li>
+        <li><strong>Hardware Detection:</strong> EchoMancer profiles your system and configures itself for optimal performance.</li>
+        <li><strong>Task Discovery:</strong> Scans your project for tasks, TODOs, and opportunities for automation.</li>
+        <li><strong>Automated Development Cycle:</strong> For each task, EchoMancer generates code, runs tests, and auto-commits or reverts changes based on results.</li>
+        <li><strong>AI Learning:</strong> Learns from successful patches and adapts to your codebase style and standards.</li>
+        <li><strong>Smart Scaling:</strong> Runs single or multiple instances depending on your hardware profile.</li>
+      </ol>
+    </section>
+    <section class="features" id="features">
+      <h2>Core Features</h2>
+      <ul>
+        <li><strong>Resource-Aware Automation:</strong> Automatically configures and scales based on your system's capabilities.</li>
+        <li><strong>Groundhog Methodology:</strong> Implements scan → code → test → commit cycles for continuous improvement.</li>
+        <li><strong>AI Learning System:</strong> Pattern recognition, context-aware automation, and predictive suggestions.</li>
+        <li><strong>Smart Test Runner:</strong> Runs only affected tests for efficiency, with result caching and performance monitoring.</li>
+        <li><strong>Structured Logging:</strong> Debug and monitor with Winston-based logging, including error tracking and log rotation.</li>
+        <li><strong>Cross-Platform CLI:</strong> Node.js-based, works on Linux, macOS, and Windows.</li>
+        <li><strong>Open Source:</strong> MIT licensed, extensible, and community-driven.</li>
+        <li><strong>Cursor Integration:</strong> Deep integration with Cursor for code generation, review, and learning.</li>
+      </ul>
+    </section>
+    <section class="info-section" id="cli">
+      <h2>CLI Example: Typical Workflow</h2>
+      <pre><code># Install Cursor (required)
+# See https://www.cursor.so/ for installation instructions
+
+# Project setup
+cd /path/to/project
+# Initialize with hardware detection and Cursor integration
+echomancer init
+# Configure as needed
+echomancer config [--max-instances N]
+
+# Start automation
+echomancer start [--single-instance] [--test-mode affected-only]
+
+echomancer status   # Check running status
+echomancer stop     # Stop automation
+
+echomancer logs [--follow] [--instance-id ID]  # View logs
+</code></pre>
+    </section>
+    <section class="links">
+      <h2>Links</h2>
+      <ul>
+        <li><a href="https://github.com/secsovereign/echomancer" target="_blank"><i class="fa-brands fa-github"></i> GitHub Repository</a></li>
+        <li><a href="https://echomancer.com" target="_blank"><i class="fa-solid fa-globe"></i> Main Site</a></li>
+        <li><a href="https://github.com/secsovereign/echomancer/releases" target="_blank"><i class="fa-solid fa-download"></i> Download Releases</a></li>
+        <li><a href="https://www.cursor.so/" target="_blank"><i class="fa-solid fa-robot"></i> Cursor Website</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html> 

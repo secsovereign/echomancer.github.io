@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Echomancer – Documentation</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    // Copy button logic for all code blocks
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('pre code').forEach(function(codeBlock) {
+        var button = document.createElement('button');
+        button.className = 'copy-btn';
+        button.innerHTML = '<i class="fa-regular fa-copy"></i>';
+        button.title = 'Copy to clipboard';
+        button.onclick = function() {
+          navigator.clipboard.writeText(codeBlock.innerText);
+          button.innerHTML = '<i class="fa-solid fa-check"></i>';
+          setTimeout(function() {
+            button.innerHTML = '<i class="fa-regular fa-copy"></i>';
+          }, 1200);
+        };
+        var pre = codeBlock.parentNode;
+        pre.style.position = 'relative';
+        button.style.position = 'absolute';
+        button.style.top = '8px';
+        button.style.right = '8px';
+        pre.appendChild(button);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-text">
+      <span class="echo">Echo</span><span class="mancer">mancer</span>
+    </div>
+    <nav>
+      <a href="https://echomancer.com" class="nav-link"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="https://github.com/secsovereign/echomancer/releases" class="nav-link" target="_blank"><i class="fa-solid fa-download"></i> Download</a>
+      <a href="https://github.com/secsovereign/echomancer" class="nav-link" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+    </nav>
+  </header>
+  <main>
+    <section class="guide-hero">
+      <h1>Echomancer Documentation <i class="fa-solid fa-book"></i></h1>
+      <p>Technical documentation for the Echomancer CLI automation tool.<br><span style="font-size:1rem;color:#A0A0A0;">Powered by <strong>Cursor</strong></span></p>
+    </section>
+    <section class="info-section" id="overview">
+      <h2>Overview <i class="fa-solid fa-circle-question"></i></h2>
+      <p><strong>Echomancer</strong> automates routine software development tasks from the command line. It scans your project for actionable items, generates code using AI (via Cursor), runs only relevant tests, and commits or reverts changes based on results. This reduces manual effort, keeps your codebase consistent, and accelerates development. Echomancer adapts to your hardware for efficient operation and learns from your codebase to improve over time. It is ideal for developers and teams seeking to automate maintenance, enforce standards, and streamline workflows.</p>
+    </section>
+    <section class="quickstart">
+      <h2>1. Installation <i class="fa-solid fa-download"></i></h2>
+      <ol style="margin-bottom:2.5rem;">
+        <li style="margin-bottom:1.2rem;"><strong>Install Cursor (required):</strong> <a href="https://www.cursor.so/" target="_blank"><i class="fa-solid fa-robot"></i> https://www.cursor.so/</a></li>
+        <li style="margin-bottom:1.2rem;"><strong>Clone Echomancer:</strong> <pre><code>git clone https://github.com/secsovereign/echomancer.git
+cd echomancer
+npm install
+</code></pre></li>
+      </ol>
+      <h2 style="margin-top:2.5rem;">2. Configuration <i class="fa-solid fa-gears"></i></h2>
+      <ul style="margin-bottom:2.5rem;">
+        <li>Echomancer auto-detects your hardware and configures itself for optimal performance.</li>
+        <li>Project configuration is stored in your project directory.</li>
+        <li>Global configuration is stored in <code>~/.echomancer/</code>.</li>
+      </ul>
+      <pre><code># View or modify configuration
+echomancer config [--max-instances N] [--project /path/to/project]
+</code></pre>
+    </section>
+    <section class="info-section" id="tasks">
+      <h2>3. Adding and Discovering Tasks <i class="fa-solid fa-list-check"></i></h2>
+      <p>Echomancer discovers tasks by scanning your codebase for TODO comments, FIXME notes, and other actionable markers. You can add tasks by including comments like <code>// TODO: implement feature X</code> or <code>// FIXME: handle edge case</code> in your code. You can also use <code>echomancer analyze</code> to trigger a scan for new tasks. Echomancer will automatically queue these for automation.</p>
+    </section>
+    <section class="info-section" id="features">
+      <h2>4. Core Features <i class="fa-solid fa-star"></i></h2>
+      <ul class="features-list" style="margin-bottom:2.5rem;">
+        <li><strong>Resource-Aware Automation:</strong> Profiles your system and configures itself to avoid overloading your machine, whether it's a laptop or server.</li>
+        <li><strong>Groundhog Methodology:</strong> Automates the cycle: scan for tasks, generate code, run only necessary tests, and commit or revert changes. Keeps your project moving with minimal manual input.</li>
+        <li><strong>AI Learning System:</strong> Learns your code style and patterns using Cursor, improving code suggestions and patches over time. This helps Echomancer produce code that matches your project's conventions and reduces manual review.</li>
+        <li><strong>Smart Test Runner:</strong> Runs only tests affected by your changes, saving time and resources.</li>
+        <li><strong>Structured Logging:</strong> Logs all actions and errors in a structured format for easy debugging and review.</li>
+        <li><strong>Cross-Platform CLI:</strong> Works on Linux, macOS, and Windows.</li>
+        <li><strong>Open Source:</strong> MIT licensed and extensible for custom workflows.</li>
+        <li><strong>Cursor Integration:</strong> Leverages Cursor for advanced code generation, review, and learning.</li>
+        <li><strong>Phases and Roles:</strong> Supports development phases (design, implementation, testing, quality) and role assignment for fine-grained automation control.</li>
+      </ul>
+    </section>
+    <section class="info-section" id="cli">
+      <h2>5. CLI Reference <i class="fa-solid fa-terminal"></i></h2>
+      <ul style="margin-bottom:2.5rem;">
+        <li><code>echomancer init [path]</code> – Initialize a project in the current directory or at [path] with hardware detection and Cursor integration.</li>
+        <li><code>echomancer config [--max-instances N] [--project path]</code> – View or update configuration.</li>
+        <li><code>echomancer start [--single-instance] [--test-mode affected-only|progressive|full] [--phase PHASE] [--role ROLE]</code> – Start automation (single or multi-instance, with test mode, phase, and role selection).</li>
+        <li><code>echomancer status</code> – Show running status and resource usage.</li>
+        <li><code>echomancer stop [--instance-id ID]</code> – Stop automation (all or by instance).</li>
+        <li><code>echomancer logs [--follow] [--instance-id ID]</code> – View logs. <code>--follow</code> streams log output in real time, similar to <code>tail -f</code>.</li>
+        <li><code>echomancer cleanup --project path</code> – Clean up project artifacts.</li>
+        <li><code>echomancer analyze</code> – Scan project for tasks, TODOs, and automation opportunities.</li>
+        <li><code>echomancer roles --assign [cursor-id] [role]</code> – Assign roles to Cursor instances (e.g., implementation, testing, quality).</li>
+        <li><code>echomancer roles --add-custom [role] --description "desc"</code> – Add custom roles for your project.</li>
+        <li><code>echomancer learn --enable</code> – Enable AI learning from your codebase and patches.</li>
+        <li><code>echomancer learn --status</code> – Show current AI learning status and patterns.</li>
+        <li><code>echomancer phase --set [phase]</code> – Set the current development phase (design, implementation, testing, quality).</li>
+        <li><code>echomancer phase --status</code> – Show the current phase and options.</li>
+      </ul>
+      <h3>Task Management Commands <i class="fa-solid fa-tasks"></i></h3>
+      <ul style="margin-bottom:2.5rem;">
+        <li><code>echomancer task list</code> – List all discovered and manually added tasks.</li>
+        <li><code>echomancer task add "Description of new task" [--file path] [--line N]</code> – Manually add a new task to the queue, optionally specifying file and line.</li>
+        <li><code>echomancer task remove [task-id]</code> – Remove a task by its ID.</li>
+        <li><code>echomancer task update [task-id] --desc "New description" [--file path] [--line N]</code> – Update a task's description or location.</li>
+        <li><code>echomancer task info [task-id]</code> – Show detailed information about a specific task.</li>
+      </ul>
+    </section>
+    <section class="info-section" id="workflow">
+      <h2>6. Automation Workflow <i class="fa-solid fa-recycle"></i></h2>
+      <ol style="margin-bottom:2.5rem;">
+        <li><strong>Scan:</strong> <code>echomancer analyze</code> inspects your project for tasks and opportunities.</li>
+        <li><strong>Code:</strong> Generates code patches using AI and project context.</li>
+        <li><strong>Test:</strong> Runs only affected tests for efficiency.</li>
+        <li><strong>Commit/Revert:</strong> Auto-commits successful changes, reverts on failure.</li>
+        <li><strong>Learn:</strong> Adapts to your code style and improves over time.</li>
+      </ol>
+    </section>
+    <section class="info-section" id="ai-learning">
+      <h2>7. AI Learning <i class="fa-solid fa-brain"></i></h2>
+      <p>AI learning is enabled by default in Echomancer. It analyzes your codebase, recognizes patterns, and adapts its code generation to match your project's style and conventions. This reduces the need for manual corrections and reviews, and helps maintain consistency as your project evolves. AI learning allows Echomancer to become more effective and context-aware over time, improving the quality and relevance of generated code.</p>
+    </section>
+    <section class="info-section" id="advanced">
+      <h2>8. Advanced Usage <i class="fa-solid fa-cogs"></i></h2>
+      <ul style="margin-bottom:2.5rem;">
+        <li>Run in <strong>single-instance</strong> mode for low-resource systems: <code>echomancer start --single-instance</code></li>
+        <li>Use <strong>test modes</strong> for faster feedback: <code>echomancer start --test-mode affected-only</code></li>
+        <li>Monitor logs in real time: <code>echomancer logs --follow</code></li>
+        <li>Assign roles and phases for advanced automation: <code>echomancer roles --assign cursor-1 implementation</code></li>
+        <li>Add custom roles: <code>echomancer roles --add-custom movement --description "Handles player movement logic"</code></li>
+        <li>Enable AI learning: <code>echomancer learn --enable</code></li>
+        <li>Set or query the current phase: <code>echomancer phase --set implementation</code>, <code>echomancer phase --status</code></li>
+        <li>Manually manage tasks: <code>echomancer task add</code>, <code>echomancer task remove</code>, <code>echomancer task update</code>, <code>echomancer task list</code>, <code>echomancer task info</code></li>
+      </ul>
+    </section>
+    <section class="info-section" id="troubleshooting">
+      <h2>9. Troubleshooting <i class="fa-solid fa-bug"></i></h2>
+      <ul style="margin-bottom:2.5rem;">
+        <li><strong>System requirements not met:</strong> Run <code>echomancer config</code> to check and optimize.</li>
+        <li><strong>Project not found:</strong> Re-initialize with <code>echomancer init</code> in your project directory.</li>
+        <li><strong>High resource usage:</strong> Limit instances: <code>echomancer config --max-instances 1</code></li>
+        <li><strong>Logs:</strong> Check <code>~/.echomancer/logs/</code> for detailed logs.</li>
+      </ul>
+    </section>
+    <section class="info-section" id="cli-example">
+      <h2>10. CLI Example <i class="fa-solid fa-terminal"></i></h2>
+      <pre><code># Install Cursor (required)
+# See https://www.cursor.so/ for installation instructions
+
+# Project setup
+cd /path/to/project
+# Initialize with hardware detection and Cursor integration
+echomancer init
+# Configure as needed
+echomancer config [--max-instances N]
+
+# Start automation
+echomancer start --phase implementation --role implementation [--single-instance] [--test-mode affected-only]
+
+echomancer status   # Check running status
+echomancer stop     # Stop automation
+
+echomancer logs --follow [--instance-id ID]  # View logs in real time
+</code></pre>
+    </section>
+    <section class="info-section" id="links">
+      <h2>11. Links <i class="fa-solid fa-link"></i></h2>
+      <ul class="links-list" style="margin-bottom:2.5rem;">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Back to Home</a></li>
+        <li><a href="https://github.com/secsovereign/echomancer/releases" target="_blank"><i class="fa-solid fa-download"></i> Download Releases</a></li>
+        <li><a href="https://github.com/secsovereign/echomancer" target="_blank"><i class="fa-brands fa-github"></i> GitHub Repository</a></li>
+        <li><a href="https://echomancer.com" target="_blank"><i class="fa-solid fa-globe"></i> Main Site</a></li>
+        <li><a href="https://www.cursor.so/" target="_blank"><i class="fa-solid fa-robot"></i> Cursor Website</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html> 
